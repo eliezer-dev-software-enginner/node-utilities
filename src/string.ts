@@ -4,10 +4,10 @@
  * @author Eliezer Dev
  * @returns boolean
  */
-function isEmptyOrNull(value: string) {
+function isEmpty(value: string) {
   const v = value.trim();
 
-  return v.length == 0 || v == '' || v == null;
+  return v.length == 0 || v == "";
 }
 
-export { isEmptyOrNull };
+export { isEmpty };
