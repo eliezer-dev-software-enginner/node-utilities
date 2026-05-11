@@ -1,9 +1,7 @@
 {
   "name": "node-utilities",
   "version": "1.0.0",
-  "description": "Métodos utilitários para usar em aplicações Nodejs",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "description": "Métodos utilitários para usar em aplicações Nodejs e também em aplicações web.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
@@ -19,12 +17,16 @@
   },
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "import": "./dist/common/index.js",
+      "types": "./dist/common/index.d.ts"
     },
-    "./browser": {
-      "import": "./dist/browser-utils.js",
-      "types": "./dist/browser-utils.d.ts"
+    "./browser-specific": {
+      "import": "./dist/browser-specific/index.js",
+      "types": "./dist/browser-specific/index.d.ts"
+    },
+    "./node-specific": {
+      "import": "./dist/node-specific/index.js",
+      "types": "./dist/node-specific/index.d.ts"
     }
   }
 }
