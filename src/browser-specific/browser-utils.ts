@@ -17,4 +17,28 @@ function searchTextInAnotherTab(text: string) {
   window.open(url, "_blank");
 }
 
-export { searchTextInAnotherTab };
+type MimeType = "application/json" | "text/plain" | "text/csv";
+
+/**
+ * Downloads a file with the specified content, file name, and MIME type.
+ * @param content The text to be downloaded
+ * @param fileName The name of the file that will be generated
+ * @param mimeType The mimeType that browser can understand to trigger download
+ *
+ * @author Eliezer Dev {@link https://github.com/eliezer-dev-software-enginner}
+ */
+
+function downloadFile(content: string, fileName: string, mimeType: MimeType) {
+  const blob = new Blob([content], { type: mimeType });
+
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = fileName;
+  a.click();
+
+  URL.revokeObjectURL(url);
+}
+
+export { searchTextInAnotherTab, downloadFile };
